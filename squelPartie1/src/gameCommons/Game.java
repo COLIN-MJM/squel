@@ -76,7 +76,7 @@ public class Game {
 	 * @return true si le partie est perdue
 	 */
 	public boolean testLose() {
-		if (environment.isSafe(environment.)) {
+		if (environment.isSafe()) {
 			return false;
 		} else {
 			return true;

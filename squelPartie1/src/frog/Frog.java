@@ -13,7 +13,7 @@ public class Frog implements IFrog {
 
 	public Frog(Game game, Case emplacement, Direction direction) {
 		this.game = game;
-		this.emplacement = emplacement;
+		this.emplacement = new Case (0, 13);
 		this.direction = direction;
 	}
 
@@ -31,13 +31,13 @@ public class Frog implements IFrog {
 	@Override
 	public void move(Direction key) {
 		if (key == Direction.up) {
-			this.emplacement.ord = this.emplacement.ord++;
+			this.getPosition().ord = this.getPosition().ord + 1;
 		} else if (key == Direction.down) {
-			this.emplacement.ord = this.emplacement.ord--;
+			this.getPosition().ord = this.getPosition().ord - 1;
 		} else if (key == Direction.left) {
-			this.emplacement.absc = this.emplacement.absc--;
+			this.getPosition().absc = this.getPosition().absc - 1;
 		} else if (key == Direction.right) {
-			this.emplacement.absc = this.emplacement.absc++;
+			this.getPosition().absc = this.getPosition().absc + 1;
 		}
 	}
 }

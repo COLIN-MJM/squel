@@ -2,6 +2,7 @@ package frog;
 
 import gameCommons.Game;
 import gameCommons.IFrog;
+import gameCommons.Main;
 import util.Case;
 import util.Direction;
 
@@ -11,10 +12,10 @@ public class Frog implements IFrog {
 	private Case emplacement;
 	private Direction direction;
 
-	public Frog(Game game, Case emplacement, Direction direction) {
+	public Frog(Game game) {
 		this.game = game;
-		this.emplacement = emplacement;
-		this.direction = direction;
+		this.emplacement = new Case(0,0,true);
+		this.direction = Direction.up;
 	}
 
 
@@ -31,15 +32,15 @@ public class Frog implements IFrog {
 	@Override
 	public void move(Direction key) {
 		if (key.equals(Direction.up)) {
-			this.emplacement.ord = new Case (getPosition().absc, getPosition().ord + 1);
+			this.emplacement = new Case (getPosition().absc, getPosition().ord + 1, true);
 		} else if (key.equals(Direction.down)) {
 			if(getPosition().ord != 0) {
-				this.emplacement.ord = new Case (getPosition().absc, getPosition().ord - 1);
+				this.emplacement = new Case (getPosition().absc, getPosition().ord - 1, true);
 			}
 		} else if (key.equals(Direction.left)) {
-			this.emplacement.absc = new Case (getPosition().absc - 1, getPosition().ord);
+			this.emplacement = new Case (getPosition().absc - 1, getPosition().ord, true);
 		} else if (key.equals(Direction.right)) {
-			this.emplacement.absc = new Case (getPosition().absc + 1, getPosition().ord);
+			this.emplacement = new Case (getPosition().absc + 1, getPosition().ord, true);
 		}
 	}
 }

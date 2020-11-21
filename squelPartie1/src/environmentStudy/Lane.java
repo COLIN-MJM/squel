@@ -1,24 +1,32 @@
 package environmentStudy;
 
 import java.util.ArrayList;
-
-import gameCommons.Case;
+import java.util.Random;
+import util.Case;
 import gameCommons.Game;
 
 public class Lane {
 	private Game game;
 	private int ord;
 	private int speed;
-	private ArrayList<Car> cars = new ArrayList<>();
+	private ArrayList<Car> cars;
 	private boolean leftToRight;
 	private double density;
 
 	// TODO : Constructeur(s)
+	public Lane(Game game){
+		Random r = new Random();
+		this.game=game;
+		this.ord=r.nextInt(game.height-1);
+		this.speed=r.nextInt(4);
+		this.cars = new ArrayList<>();
+		this.leftToRight=r.nextBoolean();
+		this.density=r.nextDouble();
+	}
 
 	public void update() {
 
 		// TODO
-
 		// Toutes les voitures se d�placent d'une case au bout d'un nombre "tic
 		// d'horloge" �gal � leur vitesse
 		// Notez que cette m�thode est appel�e � chaque tic d'horloge
@@ -32,6 +40,14 @@ public class Lane {
 
 	// TODO : ajout de methodes
 
+	public boolean carAtThisPosition(Case c){
+		for(Car v : this.cars) {
+			if(c.equals(v.leftPosition)){
+				return true;
+			}
+		}
+		return false;
+	}
 	/*
 	 * Fourni : mayAddCar(), getFirstCase() et getBeforeFirstCase() 
 	 */

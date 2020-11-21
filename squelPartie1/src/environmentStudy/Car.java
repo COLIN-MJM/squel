@@ -1,6 +1,7 @@
 package environmentStudy;
 
 import java.awt.Color;
+import java.util.Random;
 
 import util.Case;
 import gameCommons.Game;
@@ -8,16 +9,23 @@ import graphicalElements.Element;
 
 public class Car {
 	private Game game;
-	private Case leftPosition;
+	public Case leftPosition;
 	private boolean leftToRight;
 	private int length;
 	private final Color colorLtR = Color.BLACK;
 	private final Color colorRtL = Color.BLUE;
 
-	//TODO Constructeur(s)
-	
-	//TODO : ajout de methodes
+	public Car(Game game, Case c, boolean leftToRight) {
+		this.game=game;
+		this.leftPosition=c;
+		this.leftToRight=leftToRight;
+		Random r=new Random();
+		this.length=r.nextInt(4);
+	}
 
+	//TODO Constructeur(s)
+
+	//TODO : ajout de methodes
 	
 	
 	/* Fourni : addToGraphics() permettant d'ajouter un element graphique correspondant a la voiture*/

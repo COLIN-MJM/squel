@@ -14,11 +14,11 @@ public class Lane {
 	private double density;
 
 	// TODO : Constructeur(s)
-	public Lane(Game game){
+	public Lane(Game game, int ord){
 		Random r = new Random();
 		this.game=game;
-		this.ord=r.nextInt(game.height-1);
-		this.speed=r.nextInt(4);
+		this.ord=ord;
+		this.speed= game.minSpeedInTimerLoops+r.nextInt(10- game.minSpeedInTimerLoops);
 		this.cars = new ArrayList<>();
 		this.leftToRight=r.nextBoolean();
 		this.density=r.nextDouble();

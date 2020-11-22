@@ -32,7 +32,7 @@ public class Car {
 	private void addToGraphics() {
 		for (int i = 0; i < length; i++) {
 			Color color = colorRtL;
-			if (this.leftToRight){
+			if (this.leftToRight) {
 				color = colorLtR;
 			}
 			game.getGraphic()

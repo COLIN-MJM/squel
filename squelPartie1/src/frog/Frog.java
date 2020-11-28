@@ -31,15 +31,15 @@ public class Frog implements IFrog {
 
 	@Override
 	public void move(Direction key) {
-		if (key.equals(Direction.up)) {
+		if (key.equals(Direction.up) && getPosition().ord<game.height - 1) {
 			this.emplacement = new Case (getPosition().absc, getPosition().ord + 1);
 		} else if (key.equals(Direction.down)) {
 			if(getPosition().ord != 0) {
 				this.emplacement = new Case (getPosition().absc, getPosition().ord - 1);
 			}
-		} else if (key.equals(Direction.left)) {
+		} else if (key.equals(Direction.left) && getPosition().absc>0) {
 			this.emplacement = new Case (getPosition().absc - 1, getPosition().ord);
-		} else if (key.equals(Direction.right)) {
+		} else if (key.equals(Direction.right) && getPosition().absc<game.width - 1) {
 			this.emplacement = new Case (getPosition().absc + 1, getPosition().ord);
 		}
 	}

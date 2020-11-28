@@ -5,6 +5,7 @@ import java.util.Random;
 import util.Case;
 import gameCommons.Game;
 
+
 public class Lane {
 	private Game game;
 	private int ord;
@@ -25,7 +26,7 @@ public class Lane {
 	}
 
 	public void update() {
-
+		
 		// TODO
 		// Toutes les voitures se d�placent d'une case au bout d'un nombre "tic
 		// d'horloge" �gal � leur vitesse
@@ -42,7 +43,7 @@ public class Lane {
 
 	public boolean carAtThisPosition(Case c){
 		for(Car v : this.cars) {
-			if(c.equals(v.leftPosition)){
+			if(v.carHere(c)){
 				return true;
 			}
 		}

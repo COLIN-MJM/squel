@@ -9,7 +9,7 @@ import graphicalElements.Element;
 
 public class Car {
 	private Game game;
-	public Case leftPosition;
+	private Case leftPosition;
 	private boolean leftToRight;
 	private int length;
 	private final Color colorLtR = Color.BLACK;
@@ -24,7 +24,13 @@ public class Car {
 	}
 
 	//TODO Constructeur(s)
-
+	public boolean carHere(Case c){
+		for(int i = leftPosition.absc + 1 ; i<=leftPosition.absc+length; i++){
+			Case cNew = new Case(i,leftPosition.ord);
+			if(c.equals(cNew)) return true;
+		}
+		return false;
+	}
 	//TODO : ajout de methodes
 	
 	

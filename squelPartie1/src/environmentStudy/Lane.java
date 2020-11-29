@@ -6,6 +6,7 @@ import java.util.Random;
 import gameCommons.IEnvironment;
 import util.Case;
 import gameCommons.Game;
+import javax.swing.Timer;
 
 
 public class Lane {
@@ -30,17 +31,10 @@ public class Lane {
 	}
 
 	public void update() {
-		
-		// TODO
-		// Toutes les voitures se d�placent d'une case au bout d'un nombre "tic
-		// d'horloge" �gal � leur vitesse
-		// Notez que cette m�thode est appel�e � chaque tic d'horloge
-
-		// Les voitures doivent etre ajoutes a l interface graphique meme quand
-		// elle ne bougent pas
-
-		// A chaque tic d'horloge, une voiture peut �tre ajout�e
-
+		for (Car c : this.cars){
+			c.avanceCar();
+		}
+		mayAddCar();
 	}
 
 	// TODO : ajout de methodes

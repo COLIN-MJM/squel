@@ -3,6 +3,7 @@ package environmentStudy;
 import java.awt.Color;
 import java.util.Random;
 
+import util.Direction;
 import util.Case;
 import gameCommons.Game;
 import graphicalElements.Element;
@@ -34,7 +35,11 @@ public class Car {
 	//TODO : ajout de methodes
 
 	public void avanceCar(){
-		leftPosition = new Case(leftPosition.absc + 1, leftPosition.ord);
+		if(this.leftToRight){
+			this.leftPosition = new Case(leftPosition.absc + 1, leftPosition.ord);
+		} else {
+			this.leftPosition = new Case(leftPosition.absc - 1, leftPosition.ord);
+		}
 	}
 	
 	/* Fourni : addToGraphics() permettant d'ajouter un element graphique correspondant a la voiture*/

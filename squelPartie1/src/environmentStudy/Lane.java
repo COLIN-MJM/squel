@@ -26,6 +26,7 @@ public class Lane {
 		this.cars = new ArrayList<>();
 		this.leftToRight=r.nextBoolean();
 		this.density=r.nextDouble();
+		this.environment=new Environment(game);
 	}
 
 	public void update() {

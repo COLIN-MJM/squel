@@ -34,7 +34,7 @@ public class Main {
 		game.setEnvironment(env);
 				
 		//Boucle principale : l'environnement s'acturalise tous les tempo milisecondes
-		Timer timer = new Timer(tempo, new ActionListener()) {
+		Timer timer = new Timer(tempo, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				game.update();

@@ -28,4 +28,11 @@ public class EnvInf extends Environment {
             l.update();
         }
     }
+
+    public void updateInf() {
+        for(Lane l : lanes){
+            if(l.getOrd()==0) l.newOrd(game.height-1);
+            l.newOrd(l.getOrd()-1);
+        }
+    }
 }

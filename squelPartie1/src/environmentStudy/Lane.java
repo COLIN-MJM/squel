@@ -30,6 +30,14 @@ public class Lane {
 		this.environment=new Environment(game);
 	}
 
+	public int getOrd(){
+		return this.ord;
+	}
+
+	public void newOrd(int newOrd) {
+		this.ord=newOrd;
+	}
+
 	public void update() {
 		for (Car c : this.cars){
 			c.avanceCar();

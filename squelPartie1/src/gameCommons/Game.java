@@ -105,7 +105,9 @@ public class Game {
 		graphic.clear();
 		environment.update();
 		this.graphic.add(new Element(frog.getPosition(), Color.GREEN));
-		testLose();
+		if(testLose()) {
+			graphic.endGameScreen("You lose...");
+		}
 		testWin();
 	}
 

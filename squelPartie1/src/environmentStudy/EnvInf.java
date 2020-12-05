@@ -18,7 +18,7 @@ public class EnvInf extends Environment {
     @Override
     public boolean isSafe(Case c){
         for(Lane l : lanes){
-            if(!l.isSafe(c)) return false;
+            if(!l.isSafe(c) && l.getOrd()==c.ord) return false;
         }
         return true;
     }

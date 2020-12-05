@@ -45,13 +45,17 @@ public class Lane {
 	// TODO : ajout de methodes
 
 	public boolean isSafe(Case c){
-		for(Car v : this.cars) {
-			if(v.carHere(c)){
-				return false;
+		if(c.ord==ord) {
+			for (Car v : this.cars) {
+				if (v.carHere(c)) {
+					return false;
+				}
 			}
+			return true;
 		}
 		return true;
 	}
+
 	/*
 	 * Fourni : mayAddCar(), getFirstCase() et getBeforeFirstCase() 
 	 */

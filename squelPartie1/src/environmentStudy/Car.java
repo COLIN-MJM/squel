@@ -41,7 +41,9 @@ public class Car {
 			this.leftPosition = new Case(leftPosition.absc - 1, leftPosition.ord);
 		}
 	}
-	
+	public Case getLeftPosition(){
+		return leftPosition;
+	}
 	/* Fourni : addToGraphics() permettant d'ajouter un element graphique correspondant a la voiture*/
 	private void addToGraphics() {
 		for (int i = 0; i < length; i++) {

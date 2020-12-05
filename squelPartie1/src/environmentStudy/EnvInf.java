@@ -18,7 +18,7 @@ public class EnvInf extends Environment {
     @Override
     public boolean isSafe(Case c){
         for(Lane l : lanes){
-            if(!l.isSafe(c) && l.getOrd()==c.ord) return false;
+            if(!l.isSafe(c)) return false;
         }
         return true;
     }
@@ -34,6 +34,7 @@ public class EnvInf extends Environment {
         for(Lane l : lanes){
             if(l.getOrd()==0) l.newOrd(game.height-1);
             l.newOrd(l.getOrd()-1);
+            if(l.getOrd()!=0 && l.getOrd()!=game.height-1) l.update();
         }
     }
 }

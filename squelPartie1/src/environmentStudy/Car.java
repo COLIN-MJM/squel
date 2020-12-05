@@ -21,17 +21,18 @@ public class Car {
 		this.leftPosition=c;
 		this.leftToRight=leftToRight;
 		Random r=new Random();
-		this.length=r.nextInt(4);
+		this.length=r.nextInt(2);
 	}
 
 	//TODO Constructeur(s)
 	public boolean carHere(Case c){
-		for(int i = leftPosition.absc + 1 ; i<=leftPosition.absc+length; i++){
-			Case cNew = new Case(i,leftPosition.ord);
-			if(c.equals(cNew)) return true;
+		for(int i =0; i<length; i++){
+			Case newC = new Case(leftPosition.absc + i, leftPosition.ord);
+			if(c.equals(newC)) return true;
 		}
 		return false;
 	}
+
 	//TODO : ajout de methodes
 
 	public void avanceCar(){
@@ -41,9 +42,14 @@ public class Car {
 			this.leftPosition = new Case(leftPosition.absc - 1, leftPosition.ord);
 		}
 	}
+
 	public Case getLeftPosition(){
 		return leftPosition;
 	}
+	public void afficheCar(){
+		this.addToGraphics();
+	}
+
 	/* Fourni : addToGraphics() permettant d'ajouter un element graphique correspondant a la voiture*/
 	private void addToGraphics() {
 		for (int i = 0; i < length; i++) {

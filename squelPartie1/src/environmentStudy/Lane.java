@@ -15,16 +15,18 @@ public class Lane {
 	private ArrayList<Car> cars;
 	private boolean leftToRight;
 	private double density;
+	private int timer;
 
 	// TODO : Constructeur(s)
 	public Lane(Game game, int ord){
 		Random r = new Random();
 		this.game=game;
 		this.ord=ord;
-		this.speed= game.minSpeedInTimerLoops+r.nextInt(10- game.minSpeedInTimerLoops);
+		this.speed= game.minSpeedInTimerLoops+r.nextInt(5- game.minSpeedInTimerLoops);
 		this.cars = new ArrayList<>();
 		this.leftToRight=r.nextBoolean();
 		this.density=r.nextDouble();
+		this.timer=0;
 	}
 
 	public int getOrd(){
@@ -38,6 +40,7 @@ public class Lane {
 	public void update() {
 		for (Car c : this.cars){
 			c.avanceCar();
+			c.afficheCar();
 		}
 		mayAddCar();
 	}
@@ -45,13 +48,10 @@ public class Lane {
 	// TODO : ajout de methodes
 
 	public boolean isSafe(Case c){
-		if(c.ord==ord) {
-			for (Car v : this.cars) {
-				if (v.carHere(c)) {
-					return false;
-				}
+		for (Car v : this.cars) {
+			if (v.carHere(c)) {
+				return false;
 			}
-			return true;
 		}
 		return true;
 	}

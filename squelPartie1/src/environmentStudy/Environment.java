@@ -22,7 +22,7 @@ public class Environment implements IEnvironment {
     @Override
     public boolean isSafe(Case c){
         for(Lane l : lanes){
-            if(!l.isSafe(c) && l.getOrd()==c.ord) return false;
+            if(!l.isSafe(c)) return false;
         }
         return true;
     }
@@ -36,7 +36,7 @@ public class Environment implements IEnvironment {
     @Override
     public void update() {
         for(Lane l : lanes){
-            l.update();
+            if(l.getOrd()!=0 && l.getOrd()!=game.height-1) l.update();
         }
     }
 

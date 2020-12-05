@@ -109,7 +109,9 @@ public class Game {
 		if(testLose()) {
 			graphic.endGameScreen("You lose...");
 		}
-		testWin();
+		if(testWin()){
+			graphic.endGameScreen("You win !!");
+		}
 	}
 
 }

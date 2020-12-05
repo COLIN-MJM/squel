@@ -1,6 +1,7 @@
 package environmentStudy;
 
 import gameCommons.Game;
+import gameCommons.IEnvironment;
 import util.Case;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class EnvInf extends Environment {
     @Override
     public boolean isSafe(Case c){
         for(Lane l : lanes){
-            if(l.carAtThisPosition(c)) return false;
+            if(!l.isSafe(c)) return false;
         }
         return true;
     }

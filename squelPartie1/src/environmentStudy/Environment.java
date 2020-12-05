@@ -22,7 +22,7 @@ public class Environment implements IEnvironment {
     @Override
     public boolean isSafe(Case c){
         for(Lane l : lanes){
-            if(l.carAtThisPosition(c)) return false;
+            if(!l.isSafe(c)) return false;
         }
         return true;
     }

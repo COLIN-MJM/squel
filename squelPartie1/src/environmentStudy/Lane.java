@@ -3,7 +3,6 @@ package environmentStudy;
 import java.util.ArrayList;
 import java.util.Random;
 
-import gameCommons.IEnvironment;
 import util.Case;
 import gameCommons.Game;
 import javax.swing.Timer;
@@ -16,7 +15,6 @@ public class Lane {
 	private ArrayList<Car> cars;
 	private boolean leftToRight;
 	private double density;
-	private IEnvironment environment;
 
 	// TODO : Constructeur(s)
 	public Lane(Game game, int ord){
@@ -27,7 +25,6 @@ public class Lane {
 		this.cars = new ArrayList<>();
 		this.leftToRight=r.nextBoolean();
 		this.density=r.nextDouble();
-		this.environment=new Environment(game);
 	}
 
 	public int getOrd(){
@@ -47,13 +44,13 @@ public class Lane {
 
 	// TODO : ajout de methodes
 
-	public boolean carAtThisPosition(Case c){
+	public boolean isSafe(Case c){
 		for(Car v : this.cars) {
 			if(v.carHere(c)){
-				return true;
+				return false;
 			}
 		}
-		return false;
+		return true;
 	}
 	/*
 	 * Fourni : mayAddCar(), getFirstCase() et getBeforeFirstCase() 
@@ -64,7 +61,7 @@ public class Lane {
 	 * densit�, si la premi�re case de la voie est vide
 	 */
 	private void mayAddCar() {
-		if (environment.isSafe(getFirstCase()) && environment.isSafe(getBeforeFirstCase())) {
+		if (isSafe(getFirstCase()) && isSafe(getBeforeFirstCase())) {
 			if (game.randomGen.nextDouble() < density) {
 				cars.add(new Car(game, getBeforeFirstCase(), leftToRight));
 			}

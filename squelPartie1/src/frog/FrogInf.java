@@ -29,7 +29,6 @@ public class FrogInf extends Frog {
     public void move(Direction key) {
         if (key.equals(Direction.up)) {
             this.emplacement = new Case (getPosition().absc, getPosition().ord + 1);
-            for (Lane l : this.game.)
         } else if (key.equals(Direction.down)) {
             if(getPosition().ord != 0) {
                 this.emplacement = new Case (getPosition().absc, getPosition().ord - 1);
@@ -40,5 +39,4 @@ public class FrogInf extends Frog {
             this.emplacement = new Case (getPosition().absc + 1, getPosition().ord);
         }
     }
-}
 }
